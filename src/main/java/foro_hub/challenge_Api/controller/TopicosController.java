@@ -1,10 +1,8 @@
 package foro_hub.challenge_Api.controller;
 
 import foro_hub.challenge_Api.service.TopicoService;
-import foro_hub.challenge_Api.topico.DatosListadoTopicos;
-import foro_hub.challenge_Api.topico.DatosRegistroTopicos;
-import foro_hub.challenge_Api.topico.ITopicoRepository;
-import foro_hub.challenge_Api.topico.Topico;
+import foro_hub.challenge_Api.topico.*;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +24,7 @@ public class TopicosController {
     private ITopicoRepository topicoRepository;
     @Autowired
     private TopicoService topicoService;
+
     @PostMapping
     public void registarTopico(@RequestBody @Valid DatosRegistroTopicos datosRegistroTopico) {
         System.out.println(datosRegistroTopico + "sout en topicosController");
@@ -42,6 +43,24 @@ public class TopicosController {
             @PageableDefault(size = 10, sort = "fecha", direction = Sort.Direction.DESC) Pageable pageable) {
         return topicoRepository.findByCursoAndFechaYear(curso, anio, pageable).map(DatosListadoTopicos::new);
     }
+
+    @PutMapping
+    @Transactional
+    public void actualizarTopico(@RequestBody @Valid DatosActualizarTopico datosActualizarTopico) {
+        topicoService.actualizarTopico(datosActualizarTopico);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Topico> obtenerTopicoPorId(@PathVariable Long id) {
+        Topico topico = topicoService.obtenerTopicoPorId(id);
+        return ResponseEntity.ok(topico);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Topico> eliminarTopico(@PathVariable Long id) {
+        topicoService.eliminarTopico(id);
+        return ResponseEntity.noContent().build();
+    }
+}
 
 

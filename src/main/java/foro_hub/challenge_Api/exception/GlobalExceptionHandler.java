@@ -13,7 +13,13 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleDuplicateTopicoException(DuplicateTopicoException ex, WebRequest request) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(TopicoNotFoundException.class)
+    public ResponseEntity<String> handleTopicoNotFoundException(TopicoNotFoundException ex, WebRequest request) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleGlobalException(Exception ex, WebRequest request) {
-        return new ResponseEntity<>("Ocurrió un error inesperado. Por favor, inténtalo de nuevo más tarde.", HttpStatus.INTERNAL_SERVER_ERROR); }
+        return new ResponseEntity<>("Ocurrió un error inesperado. Por favor, inténtalo de nuevo más tarde.", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
