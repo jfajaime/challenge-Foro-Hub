@@ -12,4 +12,6 @@ public interface ITopicoRepository extends JpaRepository<Topico, Long> {
 
     @Query("select t from Topico t where t.curso = :curso and year(t.fecha) = :anio")
     Page<Topico> findByCursoAndFechaYear(String curso, Integer anio, Pageable pageable);
+
+    Page<Topico> findByStatusTrue(Pageable paginacion);
 }

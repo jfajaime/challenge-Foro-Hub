@@ -59,7 +59,7 @@ public class Topico {
     private String titulo;
     private String mensaje;
     private LocalDateTime fecha;
-    private String status;
+    private Boolean status;
     private String autor;
     private String curso;
     private String respuesta;
@@ -111,11 +111,11 @@ public class Topico {
         this.fecha = fecha;
     }
 
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
@@ -143,7 +143,7 @@ public class Topico {
         this.respuesta = respuesta;
     }
 
-    public Topico(Long id, String titulo, String mensaje, LocalDateTime fecha, String status, String autor, String curso, String respuesta) {
+    public Topico(Long id, String titulo, String mensaje, LocalDateTime fecha, Boolean status, String autor, String curso, String respuesta) {
         this.id = id;
         this.titulo = titulo;
         this.mensaje = mensaje;
@@ -164,9 +164,16 @@ public class Topico {
         if (datosActualizarTopico.mensaje() != null) {
         this.mensaje= datosActualizarTopico.mensaje();
         }
+        if (!!datosActualizarTopico.status()) {
+            this.status = true;
+        }
         if (datosActualizarTopico.curso() != null) {
         this.curso= datosActualizarTopico.curso();
         }
 
+    }
+
+    public void statusTopico() {
+        this.status = false;
     }
 }

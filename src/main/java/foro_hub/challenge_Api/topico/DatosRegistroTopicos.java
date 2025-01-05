@@ -13,8 +13,8 @@ public record DatosRegistroTopicos(
         String mensaje,
 //        @NotNull
         LocalDateTime fecha,
-        @NotBlank
-        String status,
+        @NotNull
+        Boolean status,
         @NotBlank
         String autor,
         @NotBlank

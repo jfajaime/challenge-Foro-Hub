@@ -9,6 +9,7 @@ import foro_hub.challenge_Api.topico.Topico;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Optional;
 
@@ -47,4 +48,5 @@ public class TopicoService {
         }
         topicoRepository.deleteById(id);
     }
+
 }

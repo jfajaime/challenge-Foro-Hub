@@ -7,7 +7,7 @@ public record DatosListadoTopicos(
         String titulo,
         String mensaje,
         LocalDateTime fecha,
-        String status,
+        Boolean status,
         String autor,
         String curso
 

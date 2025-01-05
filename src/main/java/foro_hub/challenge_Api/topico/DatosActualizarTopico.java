@@ -7,7 +7,9 @@ public record DatosActualizarTopico(
         Long id,
         String titulo,
         String mensaje,
+        boolean status,
         String curso
+
 ) {
     public String getTitulo() {
         return titulo;
