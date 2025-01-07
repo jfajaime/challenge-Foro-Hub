@@ -128,3 +128,9 @@ A Microsoft Copilot por su asistencia en la generación de contenido y soporte t
 
 #### 📄 Licencia
 Algun dia generare proyectos importantes para que tengan licencia 😬.
+
+### Muestra de Insomnia
+
+![insomnia](https://github.com/user-attachments/assets/af558305-1f69-45a5-bc51-061369a1eae3)
+
+
