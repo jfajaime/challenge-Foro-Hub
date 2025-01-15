@@ -4,6 +4,7 @@ import foro_hub.challenge_Api.security.DatosJWTToken;
 import foro_hub.challenge_Api.security.TokenService;
 import foro_hub.challenge_Api.usuarios.DatosAutenticarUsuario;
 import foro_hub.challenge_Api.usuarios.Usuario;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
+@SecurityRequirement(name = "bearer-key")
 public class AutenticacionController {
     @Autowired
     private AuthenticationManager authenticationManager;

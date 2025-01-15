@@ -2,6 +2,7 @@ package foro_hub.challenge_Api.controller;
 
 import foro_hub.challenge_Api.service.TopicoService;
 import foro_hub.challenge_Api.topico.*;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/topico")
+@SecurityRequirement(name = "bearer-key")
 public class TopicosController {
     @Autowired
     private ITopicoRepository topicoRepository;
