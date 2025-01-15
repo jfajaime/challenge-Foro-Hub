@@ -133,4 +133,10 @@ Algun dia generare proyectos importantes para que tengan licencia 😬.
 
 ![insomnia](https://github.com/user-attachments/assets/af558305-1f69-45a5-bc51-061369a1eae3)
 
+![Captura de pantalla 2025-01-15 191412](https://github.com/user-attachments/assets/a4e05024-fc52-425b-a104-2ccc8b71583f)
+
+![Captura de pantalla 2025-01-15 191320](https://github.com/user-attachments/assets/a8b7ceb3-e8ff-4915-866c-4d369a1d214f)
+
+
+
 
